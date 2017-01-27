@@ -73,7 +73,7 @@ class ShiftController: UIViewController, UpdateShift, UITableViewDataSource, UIT
     func enableButton(_ button:UIButton) {
         button.backgroundColor = UIColor(red: 139/255, green: 195/255, blue: 74/255, alpha: 1.0)
         button.isEnabled = true
-        button.setTitle("Check-in", for: UIControlState.normal)
+        button.setTitle("Check in", for: UIControlState.normal)
     }
     
     func UpdateShift() {
