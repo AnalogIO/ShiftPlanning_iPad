@@ -580,6 +580,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 82899AE3A747310CA05FEA64 /* Pods-Shiftplanning_iPad.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = Y5U9T77F2K;
 				INFOPLIST_FILE = Shiftplanning_iPad/Info.plist;
@@ -595,6 +596,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F6D0AF8BD6A25555BED90F1D /* Pods-Shiftplanning_iPad.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = Y5U9T77F2K;
 				INFOPLIST_FILE = Shiftplanning_iPad/Info.plist;

@@ -19,12 +19,15 @@ class StartController: UIViewController, UpdateShifts, UITableViewDelegate, UITa
     @IBOutlet var shiftContainer: UIView!
     let nService = NetworkService()
     let alertHelper = AlertHelper()
+    let refreshControl = UIRefreshControl()
     let dataRepo = DataRepo.sharedInstance
     var shiftController: ShiftController?
     var cShiftController: CreateShiftController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.refreshControl.addTarget(self, action: #selector(refresh(_:)), for: UIControlEvents.valueChanged)
+        self.tableView?.addSubview(refreshControl)
         nService.todaysShifts() { success, response in
             if !success {
                 self.alertHelper.showAlert(response, view: self)
@@ -36,6 +39,19 @@ class StartController: UIViewController, UpdateShifts, UITableViewDelegate, UITa
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    func refresh(_ sender:AnyObject) {
+        self.nService.todaysShifts() { success, response in
+            self.refreshControl.endRefreshing()
+            if !success {
+                self.alertHelper.showAlert(response, view: self)
+                return
+            }
+            self.shiftContainer.isHidden = true
+            self.createShiftContainer.isHidden = true
+            self.tableView.reloadData()
+        }
     }
     
     @IBAction func addPressed(_ sender: UIButton) {
